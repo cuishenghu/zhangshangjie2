@@ -21,6 +21,7 @@
         android:textColor="@android:color/black"
         android:textSize="22sp"/>
     <TextView
+        android:id="@+id/assess_phone"
         android:text="15006598533"
         android:layout_alignTop="@id/assess_ratingBar"
         android:layout_alignParentRight="true"
@@ -41,6 +42,7 @@
         android:layout_height="50dp"
         android:orientation="horizontal">
         <TextView
+            android:id="@+id/assess_createtime"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="2"

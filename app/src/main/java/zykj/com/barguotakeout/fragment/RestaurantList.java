@@ -110,9 +110,9 @@ public class RestaurantList extends CommonFragment implements View.OnClickListen
 
 
     private void initView() {
-        btn_paixu = (RelativeLayout) getView().findViewById(R.id.btn_paixu);
-        btn_fenlei = (RelativeLayout) getView().findViewById(R.id.btn_fenlei);
-        btn_huodong = (RelativeLayout) getView().findViewById(R.id.btn_huodong);
+        btn_paixu = (RelativeLayout) getView().findViewById(R.id.btn_paixu);//排序
+        btn_fenlei = (RelativeLayout) getView().findViewById(R.id.btn_fenlei);//分类
+        btn_huodong = (RelativeLayout) getView().findViewById(R.id.btn_huodong);//活动
 
         btn_paixu.setOnClickListener(this);
         btn_fenlei.setOnClickListener(this);
@@ -122,14 +122,13 @@ public class RestaurantList extends CommonFragment implements View.OnClickListen
         listView.setMode(PullToRefreshBase.Mode.BOTH);
 
 
-        listView.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener<ListView>() {
-            @Override
-            public void onRefresh(PullToRefreshBase<ListView> refreshView) {
-                //重新加载数据
-                requestData(Mapplication.getModel().getLatitude(),Mapplication.getModel().getLongitude());
-
-            }
-        });
+//        listView.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener<ListView>() {
+//            @Override
+//            public void onRefresh(PullToRefreshBase<ListView> refreshView) {
+//                //重新加载数据
+//                requestData(Mapplication.getModel().getLatitude(),Mapplication.getModel().getLongitude());
+//            }
+//        });
 
         listView.setOnRefreshListener(new PullToRefreshBase.OnRefreshListener2<ListView>() {
             @Override
@@ -251,11 +250,13 @@ public class RestaurantList extends CommonFragment implements View.OnClickListen
             @Override
             public void onReadSuccess(List<ResturantModel> llist) {
                 list.addAll(llist);
-                adapter = new RestaurantAdapter(getActivity(),list);
-                listView.setAdapter(adapter);
-                if(listView.isRefreshing()){
-                    listView.onRefreshComplete();
-                }
+                //adapter = new RestaurantAdapter(getActivity(),list);
+                //listView.setAdapter(adapter);
+                adapter.notifyDataSetChanged();
+                listView.onRefreshComplete();
+//                if(listView.isRefreshing()){
+//                    listView.onRefreshComplete();
+//                }
             }
 
             @Override

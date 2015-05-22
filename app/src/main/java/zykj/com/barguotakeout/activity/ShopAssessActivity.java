@@ -21,6 +21,7 @@ import zykj.com.barguotakeout.adapter.ShopAssessAdapter;
 import zykj.com.barguotakeout.http.EntityHandler;
 import zykj.com.barguotakeout.http.HttpUtil;
 import zykj.com.barguotakeout.http.SimpleHttpHandler;
+import zykj.com.barguotakeout.http.UrlContants;
 import zykj.com.barguotakeout.model.ShopAssess;
 
 /**
@@ -49,11 +50,13 @@ public class ShopAssessActivity extends CommonActivity {
         params.add("page", String.valueOf(page));//当前页
         params.add("num", String.valueOf(num));//每页数量
         params.add("iscontaintext", "0");//0为全部，1为非空
-        HttpUtil.getcomments(new EntityHandler<ShopAssess>(ShopAssess.class) {
+        HttpUtil.getcomments(new SimpleHttpHandler() {
             @Override
-            public void onReadSuccess(final List<ShopAssess> list) {
-                ShopAssessAdapter adapter = new ShopAssessAdapter(ShopAssessActivity.this,list);
-                listView.setAdapter(adapter);
+            public void onJsonSuccess(JSONObject json) {
+                JSONObject jsonObject = json.getJSONObject(UrlContants.jsonData);
+                JSONArray jsonArray = jsonObject.getJSONArray(UrlContants.jsonData);
+                List<ShopAssess> list = JSON.parseArray(jsonArray.toString(), ShopAssess.class);
+                listView.setAdapter(new ShopAssessAdapter(ShopAssessActivity.this,list));
             }
         }, params);
     }

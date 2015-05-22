@@ -26,7 +26,7 @@ import zykj.com.barguotakeout.http.HttpUtil;
 import zykj.com.barguotakeout.model.Order;
 
 /**
- * lss 5/18 新增收货地址（编辑收货地址）
+ * lss 5/18 新增收货地址（ 编辑收货地址 ）
  */
 public class AddAddressActivity extends CommonActivity implements View.OnClickListener {
     ImageView im_addaddress_back;

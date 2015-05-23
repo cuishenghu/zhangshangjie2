@@ -261,7 +261,7 @@ public class RankList extends CommonFragment implements View.OnClickListener,Ada
         HttpUtil.getbaguoRank(new EntityHandler<BaGuoRank>(BaGuoRank.class) {
             @Override
             public void onReadSuccess(List<BaGuoRank> list) {
-                ranksAdapter = new RanksAdapter(getActivity(),list);
+                ranksAdapter = new RanksAdapter(getActivity(),list,RankList.this.getActivity());
                 ranklist.setAdapter(ranksAdapter);
                 ranklist.setOnItemClickListener(RankList.this);
             }
@@ -284,7 +284,7 @@ public class RankList extends CommonFragment implements View.OnClickListener,Ada
             @Override
             public void onReadSuccess(List<BaGuoRank> alist) {
                 bglist.addAll(alist);
-                ranksAdapter = new RanksAdapter(getActivity(),bglist);
+                ranksAdapter = new RanksAdapter(getActivity(),bglist,RankList.this.getActivity());
                 ranklist.setAdapter(ranksAdapter);
                 if(ranklist.isRefreshing()){
                     ranklist.onRefreshComplete();

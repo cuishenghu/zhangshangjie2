@@ -15,6 +15,12 @@ import com.alibaba.fastjson.JSONObject;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 import com.nostra13.universalimageloader.core.ImageLoader;
+import com.umeng.socialize.bean.SHARE_MEDIA;
+import com.umeng.socialize.controller.UMServiceFactory;
+import com.umeng.socialize.controller.UMSocialService;
+import com.umeng.socialize.media.UMImage;
+import com.umeng.socialize.sso.UMQQSsoHandler;
+import com.umeng.socialize.weixin.controller.UMWXHandler;
 
 import org.apache.http.Header;
 
@@ -46,6 +52,7 @@ public class ShopFragment extends CommonFragment implements View.OnClickListener
     private RelativeLayout rl_comment;
     private RelativeLayout rl_photo;
     private TextView tv_commentnum;
+    private ImageView iv_share;
 
     public static ShopFragment newInstance(String resid){
         ShopFragment shopFragment=new ShopFragment();
@@ -81,9 +88,10 @@ public class ShopFragment extends CommonFragment implements View.OnClickListener
         rl_comment = (RelativeLayout) getView().findViewById(R.id.rl_comment);
         rl_photo = (RelativeLayout) getView().findViewById(R.id.rl_photo);
         tv_commentnum = (TextView) getView().findViewById(R.id.tv_pingia);
+        iv_share = (ImageView) getView().findViewById(R.id.iv_share);
         rl_comment.setOnClickListener(this);
         rl_photo.setOnClickListener(this);
-
+        iv_share.setOnClickListener(this);
 
     }
 
@@ -147,6 +155,27 @@ public class ShopFragment extends CommonFragment implements View.OnClickListener
                 pIntent.putExtra("resid",resid);
                 startActivity(pIntent);
                 break;
+            case R.id.iv_share:
+                //分享
+                final UMSocialService mController = UMServiceFactory.getUMSocialService("com.umeng.share");
+// 设置分享内容
+                mController.setShareContent("友盟社会化组件（SDK）让移动应用快速整合社交分享功能，http://www.umeng.com/social");
+// 设置分享图片, 参数2为图片的url地址
+                mController.setShareMedia(new UMImage(getActivity(),
+                        "http://www.umeng.com/images/pic/banner_module_social.png"));
+                //分享到QQ
+                mController.getConfig().removePlatform(SHARE_MEDIA.RENREN, SHARE_MEDIA.DOUBAN, SHARE_MEDIA.QZONE,SHARE_MEDIA.WEIXIN_CIRCLE,SHARE_MEDIA.SINA,SHARE_MEDIA.TENCENT);
+                UMQQSsoHandler qqSsoHandler = new UMQQSsoHandler(getActivity(), "1104656844",
+                        "t9wdH49qoNg84deS");
+                qqSsoHandler.addToSocialSDK();
+                //分享到微信
+                String appID = "wx967daebe835fbeac";
+                String appSecret = "5fa9e68ca3970e87a1f83e563c8dcbce";
+                // 添加微信平台
+                UMWXHandler wxHandler = new UMWXHandler(getActivity(),appID,appSecret);
+                wxHandler.addToSocialSDK();
+
+                mController.openShare(getActivity(), false);
         }
     }
 

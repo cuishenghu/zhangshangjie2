@@ -1,5 +1,6 @@
 package zykj.com.barguotakeout.adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,12 @@ import android.widget.TextView;
 import com.alibaba.fastjson.JSONObject;
 import com.loopj.android.http.RequestParams;
 import com.nostra13.universalimageloader.core.ImageLoader;
+import com.umeng.socialize.bean.SHARE_MEDIA;
+import com.umeng.socialize.controller.UMServiceFactory;
+import com.umeng.socialize.controller.UMSocialService;
+import com.umeng.socialize.media.UMImage;
+import com.umeng.socialize.sso.UMQQSsoHandler;
+import com.umeng.socialize.weixin.controller.UMWXHandler;
 
 import java.util.List;
 
@@ -35,11 +42,13 @@ public class RanksAdapter extends BaseAdapter {
     private List<BaGuoRank> list;
     private LayoutInflater inflater;
     private Context context;
+    private Activity activity;
     private static final String TAG = RanksAdapter.class.getSimpleName();
 
-    public RanksAdapter(Context context, List<BaGuoRank> list) {
+    public RanksAdapter(Context context, List<BaGuoRank> list,Activity activity) {
         inflater = LayoutInflater.from(context);
         this.context = context;
+        this.activity = activity;
         this.list = list;
     }
 
@@ -113,7 +122,26 @@ public class RanksAdapter extends BaseAdapter {
         holder.button_share.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ToastUTil.shortT(context,"分享成功");
+//                ToastUTil.shortT(context,"分享成功");
+                final UMSocialService mController = UMServiceFactory.getUMSocialService("com.umeng.share");
+// 设置分享内容
+                mController.setShareContent("友盟社会化组件（SDK）让移动应用快速整合社交分享功能，http://www.umeng.com/social");
+// 设置分享图片, 参数2为图片的url地址
+                mController.setShareMedia(new UMImage(context,
+                        "http://www.umeng.com/images/pic/banner_module_social.png"));
+                //分享到QQ
+                mController.getConfig().removePlatform(SHARE_MEDIA.RENREN, SHARE_MEDIA.DOUBAN, SHARE_MEDIA.QZONE,SHARE_MEDIA.WEIXIN_CIRCLE,SHARE_MEDIA.SINA,SHARE_MEDIA.TENCENT);
+                UMQQSsoHandler qqSsoHandler = new UMQQSsoHandler(activity, "1104656844",
+                        "t9wdH49qoNg84deS");
+                qqSsoHandler.addToSocialSDK();
+                //分享到微信
+                String appID = "wx967daebe835fbeac";
+                String appSecret = "5fa9e68ca3970e87a1f83e563c8dcbce";
+                // 添加微信平台
+                UMWXHandler wxHandler = new UMWXHandler(activity,appID,appSecret);
+                wxHandler.addToSocialSDK();
+
+                mController.openShare(activity, false);
             }
         });
         return convertView;

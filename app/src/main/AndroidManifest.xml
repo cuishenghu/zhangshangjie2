@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="zykj.com.barguotakeout" >
+    package="zykj.com.barguotakeout">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -26,7 +26,9 @@
     <!-- ping++在线支付权限 -->
     <uses-permission android:name="android.permission.INTERNET" />
     <!--添加可以向外拨打电话的权限  -->
-    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <!-- QQ、QQ空间所需权限 -->
+    <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
@@ -42,23 +44,19 @@
         android:allowBackup="true"
         android:icon="@mipmap/apk_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
         <activity
             android:name=".activity.DayJokeActivity"
-            android:launchMode="singleTask" >
-        </activity>
+            android:launchMode="singleTask"></activity>
         <activity
             android:name=".activity.MonthLuckActivity"
-            android:launchMode="singleTask" >
-        </activity>
+            android:launchMode="singleTask"></activity>
         <activity
             android:name=".activity.LocatActivity"
-            android:launchMode="singleTask" >
-        </activity>
+            android:launchMode="singleTask"></activity>
         <activity
             android:name=".activity.MainActivity"
-            android:label="@string/app_name" >
-        </activity>
+            android:label="@string/app_name"></activity>
         <activity
             android:name="cn.smssdk.SMSSDKUIShell"
             android:configChanges="keyboardHidden|orientation|screenSize"
@@ -139,8 +137,7 @@
         <activity
             android:name=".TestActivity"
             android:label="@string/title_activity_test"
-            android:launchMode="singleTask" >
-        </activity>
+            android:launchMode="singleTask"></activity>
         <!-- Ping++ SDK 注册 -->
         <activity
             android:name="com.pingplusplus.android.PaymentActivity"
@@ -170,7 +167,7 @@
 
         <activity
             android:name=".activity.DonhuaMainActivity"
-            android:label="@string/title_activity_donhua_main" >
+            android:label="@string/title_activity_donhua_main">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -179,48 +176,73 @@
         </activity>
         <activity
             android:name=".activity.WelcomeActivity"
-            android:label="@string/title_activity_welcome" >
-        </activity>
+            android:label="@string/title_activity_welcome"></activity>
         <activity
             android:name=".activity.ZhaoShangJiaMengActivity"
-            android:label="@string/title_activity_zhao_shang_jia_meng" >
-        </activity>
+            android:label="@string/title_activity_zhao_shang_jia_meng"></activity>
         <activity
             android:name=".activity.ChengPinActivity"
-            android:label="@string/title_activity_cheng_pin" >
-        </activity>
+            android:label="@string/title_activity_cheng_pin"></activity>
         <activity
             android:name=".activity.ShopPhotoActivity"
-            android:label="@string/title_activity_ba_guo_bi" >
-        </activity>
+            android:label="@string/title_activity_ba_guo_bi"></activity>
         <activity
             android:name=".activity.ShouCangActivity"
-            android:label="@string/title_activity_shou_cang" >
-        </activity>
+            android:label="@string/title_activity_shou_cang"></activity>
         <activity
             android:name=".activity.GuanwangActivity"
-            android:label="@string/title_activity_guanwang" >
-        </activity>
+            android:label="@string/title_activity_guanwang"></activity>
         <activity
             android:name=".activity.GongSiJianJieActivity"
-            android:label="@string/title_activity_gong_si_jian_jie" >
-        </activity>
+            android:label="@string/title_activity_gong_si_jian_jie"></activity>
         <activity
             android:name=".activity.TouSuChuLiActivity"
-            android:label="@string/title_activity_tou_su_chu_li" >
-        </activity>
+            android:label="@string/title_activity_tou_su_chu_li"></activity>
         <activity
             android:name=".activity.WoDeShouHuoDiZhiActivity"
-            android:label="@string/title_activity_wo_de_shou_huo_di_zhi" >
-        </activity>
+            android:label="@string/title_activity_wo_de_shou_huo_di_zhi"></activity>
         <activity
             android:name=".activity.AddAddressActivity"
-            android:label="@string/title_activity_add_address" >
-        </activity>
+            android:label="@string/title_activity_add_address"></activity>
         <activity
             android:name=".activity.EditAddressActivity"
-            android:label="@string/title_activity_edit_address" >
+            android:label="@string/title_activity_edit_address"></activity>
+
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="5551c5c8e0f55a4901000897" />
+
+        <activity
+            android:name="com.umeng.socialize.view.ShareActivity"
+            android:configChanges="orientation|keyboard"
+            android:launchMode="singleTask"
+            android:noHistory="true"
+            android:theme="@style/Theme.UMDialog"
+            android:windowSoftInputMode="stateVisible|adjustResize" />
+        <!-- ############ QQ空间和QQ SSO授权的Activity注册 ############ -->
+        <activity
+            android:name="com.tencent.tauth.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- 100424468，如果你使用的公用账号，则不需要修改；否则修改成你在QQ开放平台申请的 APP ID-->
+                <data android:scheme="tencent1104656844" />
+            </intent-filter>
         </activity>
+        <activity android:name="com.tencent.connect.common.AssistActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".activity.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
     </application>
 
 </manifest>

@@ -23,6 +23,13 @@
         <dex dex="E:\zhangshangjie2\app\build\intermediates\pre-dexed\debug\Android_Location_V1.3.2-b1b465d1ac54661594906da42373953850a0260d.jar" />
     </item>
     <item
+        jar="E:\zhangshangjie2\app\libs\com.umeng.message.lib.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="677c0952a131b25534391ee916f180de4fde8371">
+        <dex dex="E:\zhangshangjie2\app\build\intermediates\pre-dexed\debug\com.umeng.message.lib-c49735cde844306bc3b7e95a984f62a4d579ffa2.jar" />
+    </item>
+    <item
         jar="E:\zhangshangjie2\app\libs\alipaysecsdk.jar"
         jumboMode="false"
         revision="22.0.1"
@@ -82,15 +89,8 @@
         jar="E:\zhangshangjie2\app\build\intermediates\exploded-aar\zhangshangjie2\library\unspecified\classes.jar"
         jumboMode="false"
         revision="22.0.1"
-        sha1="9d92879b06e7f6b9a3a7e16afe277b7ccacdd202">
+        sha1="211edd519c9cbd9f7cb4323da88189e562ab5732">
         <dex dex="E:\zhangshangjie2\app\build\intermediates\pre-dexed\debug\classes-2a09235b50cf3140cc1c591d37f2f161176bf0b9.jar" />
-    </item>
-    <item
-        jar="E:\zhangshangjie2\app\libs\SocialSDK_WeiXin_1.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="d7c2f29c05b35e8c8713be2b81c41cf18f98b64a">
-        <dex dex="E:\zhangshangjie2\app\build\intermediates\pre-dexed\debug\SocialSDK_WeiXin_1-605bdf9f2fcb18bd0d6c65d12633a61e7db159e0.jar" />
     </item>
     <item
         jar="E:\zhangshangjie2\app\build\intermediates\exploded-aar\com.daimajia.slider\library\1.1.2\classes.jar"
@@ -98,6 +98,13 @@
         revision="22.0.1"
         sha1="8aa807a27d3fde0de287ccb5cef2f302e180563f">
         <dex dex="E:\zhangshangjie2\app\build\intermediates\pre-dexed\debug\classes-7e6d5cfc495e736fa1a4ce0915be1c9a427d890b.jar" />
+    </item>
+    <item
+        jar="E:\zhangshangjie2\app\libs\SocialSDK_WeiXin_1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="d7c2f29c05b35e8c8713be2b81c41cf18f98b64a">
+        <dex dex="E:\zhangshangjie2\app\build\intermediates\pre-dexed\debug\SocialSDK_WeiXin_1-605bdf9f2fcb18bd0d6c65d12633a61e7db159e0.jar" />
     </item>
     <item
         jar="E:\zhangshangjie2\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.1.1\classes.jar"
@@ -184,18 +191,18 @@
         <dex dex="E:\zhangshangjie2\app\build\intermediates\pre-dexed\debug\SocialSDK_QQZone_1-8c1824f6523e5260d4c188f459a52a514fba3f87.jar" />
     </item>
     <item
+        jar="E:\zhangshangjie2\app\build\intermediates\exploded-aar\zhangshangjie2\SMSSDK\unspecified\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="29c3a6f3573a6101e60e09e94f7d92d14fa03ff5">
+        <dex dex="E:\zhangshangjie2\app\build\intermediates\pre-dexed\debug\classes-8b0b981b3fb8f6ce59c2a393d907113b1a3a465d.jar" />
+    </item>
+    <item
         jar="E:\zhangshangjie2\app\libs\SocialSDK_QQZone_2.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="4a69b33758dcba3ef519cbd4b6c8af5f41603c4f">
         <dex dex="E:\zhangshangjie2\app\build\intermediates\pre-dexed\debug\SocialSDK_QQZone_2-93cc7b6858dab750c11abb1e86e52ffdcd10f82b.jar" />
-    </item>
-    <item
-        jar="E:\zhangshangjie2\app\build\intermediates\exploded-aar\zhangshangjie2\SMSSDK\unspecified\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="fa43b62d0530830bec87c17354de387131267e95">
-        <dex dex="E:\zhangshangjie2\app\build\intermediates\pre-dexed\debug\classes-8b0b981b3fb8f6ce59c2a393d907113b1a3a465d.jar" />
     </item>
     <item
         jar="E:\zhangshangjie2\app\build\intermediates\exploded-aar\info.hoang8f\android-segmented\1.0.5\classes.jar"

@@ -9,6 +9,8 @@ import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 
+import com.umeng.message.PushAgent;
+
 import zykj.com.barguotakeout.R;
 
 /**
@@ -24,6 +26,8 @@ public class DonhuaMainActivity extends Activity {
                 .inflate(this, R.layout.activity_donhua_main, null);
         setContentView(startView);
         context = this;
+        PushAgent mPushAgent = PushAgent.getInstance(context);
+        mPushAgent.enable();
         // 渐变
         AlphaAnimation aa = new AlphaAnimation(0.3f, 1.0f);
         aa.setDuration(1000);

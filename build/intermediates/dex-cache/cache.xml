@@ -30,18 +30,18 @@
         <dex dex="E:\zhangshangjie2\app\build\intermediates\pre-dexed\debug\alipaysecsdk-ed9ce124ec16097ec4491e9a0fadd90b92c4469b.jar" />
     </item>
     <item
+        jar="E:\zhangshangjie2\app\libs\com.umeng.fb.5.2.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="d94d3bddde81da1f41fe07997dd6e5ee30797303">
+        <dex dex="E:\zhangshangjie2\app\build\intermediates\pre-dexed\debug\com.umeng.fb.5.2.0-759b0cbc13edd2d467e7ffc870a14e8651b5a5e8.jar" />
+    </item>
+    <item
         jar="E:\zhangshangjie2\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.1.1\libs\internal_impl-22.1.1.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="9e070ad32b2700b0343e8e0cccc437733d91ba3a">
         <dex dex="E:\zhangshangjie2\app\build\intermediates\pre-dexed\debug\internal_impl-22.1.1-c7bd9cacf2c0ce43b2b532bba862fd71044c6ce4.jar" />
-    </item>
-    <item
-        jar="E:\zhangshangjie2\app\libs\android-support-v4.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="3e4e879d0b3dc11f2feb3f55e77e3b5bd82c4a28">
-        <dex dex="E:\zhangshangjie2\app\build\intermediates\pre-dexed\debug\android-support-v4-8fcd4da0e751d8322a40a2592be25a5b8ddec3c2.jar" />
     </item>
     <item
         jar="E:\zhangshangjie2\app\build\intermediates\exploded-aar\zhangshangjie2\SMSSDK\unspecified\libs\mframework.jar"

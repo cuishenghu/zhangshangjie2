@@ -1,6 +1,7 @@
 package zykj.com.barguotakeout.activity;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
@@ -11,6 +12,7 @@ import android.widget.RelativeLayout;
 
 import com.alibaba.fastjson.JSONObject;
 import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.umeng.fb.FeedbackAgent;
 
 import org.apache.http.Header;
 
@@ -27,22 +29,25 @@ public class SettingActivity extends CommonActivity implements View.OnClickListe
     private Button btn_logout;
     private RelativeLayout rl_zixundianhua;
     private JSONObject data;
+    private RelativeLayout rl_fankui;
+    FeedbackAgent agent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
-
         initView();
-
+        agent = new FeedbackAgent(this);
 
     }
 
     private void initView() {
         btn_logout = (Button) findViewById(R.id.btn_set_logout);
         rl_zixundianhua = (RelativeLayout)findViewById(R.id.rl_zixundianhua);
+        rl_fankui = (RelativeLayout)findViewById(R.id.rl_fankui);
         rl_zixundianhua.setOnClickListener(this);
         btn_logout.setOnClickListener(this);
+        rl_fankui.setOnClickListener(this);
     }
 
     public void back(View v){
@@ -71,6 +76,10 @@ public class SettingActivity extends CommonActivity implements View.OnClickListe
                case R.id.rl_zixundianhua:
                    //咨询电话
                    getDianHuaInfo();
+                   break;
+               case R.id.rl_fankui:
+                   //反馈
+                   agent.startFeedbackActivity();
                    break;
            }
     }

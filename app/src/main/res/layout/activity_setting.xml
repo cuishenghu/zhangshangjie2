@@ -125,6 +125,7 @@
             android:background="#dddddd"
             ></View>
         <RelativeLayout
+            android:id="@+id/rl_fankui"
             android:padding="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
